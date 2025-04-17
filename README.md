@@ -69,16 +69,4 @@ All models were evaluated on:
 
 ---
 
-## 📊 Visual Results
-
-You can include plots for better visualization (if you generated them):
-
-![Model Comparison (MSE)](![image](https://github.com/user-attachments/assets/9f209dae-ca00-45ee-ab36-f8eabe3b479e)
-)
-![Model Comparison (R²)](![image](https://github.com/user-attachments/assets/f91f7c46-0e30-4b43-917d-cda07c9d05f4)
-)
-![Model Comparison (RMSE)](![image](https://github.com/user-attachments/assets/8f502b7d-6827-465a-888c-138b7d08d881)
-)
-)
-
 
