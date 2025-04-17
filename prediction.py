@@ -2,22 +2,21 @@ import joblib
 import pandas as pd
 import xgboost as xgb
 
-try:
-    model = joblib.load("model.joblib")  
-    print("Loaded model.joblib")
-except FileNotFoundError:
-    raise FileNotFoundError("model.joblib not found. Please make sure the model file exists.")
+model = joblib.load("model.joblib")
+print("Loaded model.joblib")
 
-try:
-    X_test_sample = pd.read_csv("X_test_sample.csv")  # Assumes the test data is saved as 'X_test_sample.csv'
-    print("Loaded X_test_sample.csv")
-except FileNotFoundError:
-    raise FileNotFoundError("X_test_sample.csv not found. Please make sure the test data file exists.")
+scaler = joblib.load("scalar.joblib")
+print("Loaded scalar.joblib")
 
-y_pred = model.predict(xgb.DMatrix(X_test_sample)) 
+test_data = pd.read_csv("X_test.csv")  # Replace 'X_test.csv' with your actual test data file
+print("Loaded test data from X_test.csv")
 
-pd.DataFrame(y_pred, columns=["predicted"]).to_csv("y_pred.csv", index=False)
-print("Predictions saved to y_pred.csv")
+test_data_scaled = scaler.transform(test_data)
 
-print("\nSample Predictions:")
-print(y_pred[:5])
+predictions = model.predict(xgb.DMatrix(test_data_scaled))
+
+pd.DataFrame(predictions, columns=["predicted"]).to_csv("test_predictions.csv", index=False)
+print("Predictions saved to test_predictions.csv")
+
+print("Sample Predictions (first 5):")
+print(predictions[:5])
