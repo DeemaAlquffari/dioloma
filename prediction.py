@@ -8,8 +8,8 @@ print("Loaded model.joblib")
 scaler = joblib.load("scalar.joblib")
 print("Loaded scalar.joblib")
 
-test_data = pd.read_csv("X_test_Sample.csv")  
-print("Loaded test data from X_test.csv")
+test_data = pd.read_csv("X_test_sample.csv")  
+print("Loaded test data from X_test_sample.csv")
 
 test_data_scaled = scaler.transform(test_data)
 
